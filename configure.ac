@@ -1,6 +1,8 @@
 AC_INIT([dvbsnoop],[1.4.6],[rasc@users.sourceforge.net])
 AM_INIT_AUTOMAKE([dist-bzip2 no-define])
 
+AC_SEARCH_LIBS([sqrt], [m])
+
 AC_PROG_CC
 AC_PROG_RANLIB
 
@@ -26,6 +28,7 @@ fi
 AC_OUTPUT([
 Makefile
 src/Makefile
+src/bitdata/Makefile
 src/datacarousel/Makefile
 src/descriptors/Makefile
 src/dvb_api/Makefile

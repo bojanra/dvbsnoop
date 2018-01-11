@@ -48,13 +48,13 @@ void processTS_packet (u_int pid, long pkt_nr, u_char *b, int len)
        // -- subdecode prev. collected TS data
        // -- push new data
        if (opt->printdecode && opt->ts_subdecode) {
-	       ts2SecPes_subdecode (b, len, pid);
+	       ts2SecPes_subdecode (b, len, pkt_nr, pid);
        }
 
 
        // -- new packet, output header
        indent (0);
-       print_packet_header (opt, "TS", opt->pid, pkt_nr, len);
+       print_packet_header (opt, "TS", pid, pkt_nr, len);
 
 
        // hex output (also on wrong packets)
@@ -71,7 +71,7 @@ void processTS_packet (u_int pid, long pkt_nr, u_char *b, int len)
           out_NL (3);
           if (opt->ts_subdecode) {
              // -- check if stored packet(s) length is sufficient for output
-	     ts2SecPes_checkAndDo_PacketSubdecode_Output();
+	     ts2SecPes_checkAndDo_PacketSubdecode_Output(pid);
           }
 
        }

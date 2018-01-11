@@ -1876,6 +1876,72 @@ char *dvbstrTS_AdaptationField_TYPE (u_int i)
  ------------------------------------------------------------------------
 */
 
+char *dvbstrPESH264_NALU_ID (u_int i)
+{
+  STR_TABLE  Table[] = {
+      { 0x00, 0x00,  "unspecified"},
+      { 0x01, 0x01,  "slice_non_IDR_picture"},
+      { 0x02, 0x02,  "slice_data_partition_a"},
+      { 0x03, 0x03,  "slice_data_partition_b"},
+      { 0x04, 0x04,  "slice_data_partition_c"},
+      { 0x05, 0x05,  "slice_IDR_picture"},
+      { 0x06, 0x06,  "SEI"},
+      { 0x07, 0x07,  "SPS"},
+      { 0x08, 0x08,  "PPS"},
+      { 0x09, 0x09,  "AUD"},
+      { 0x0A, 0x0A,  "end_of_seq"}, 
+      { 0x0B, 0x0B,  "end_of_stream"}, 
+      { 0x0C, 0x0C,  "filler_data"},
+      { 0x0D, 0x0D,  "SPS_extension"},
+      { 0x0E, 0x0E,  "prefix_nal_unit"},
+      { 0x0F, 0x0F,  "subset_SPS"},
+      { 0x10, 0x12,  "reserved"},
+      { 0x13, 0x13,  "slice_auxiliary_coded"}, 
+      { 0x14, 0x14,  "slice_scalable_extension"},
+      { 0x15, 0x17,  "reserved"},
+      { 0x18, 0x1F,  "unspecified"},
+      { 0x00, 0x00,  "NULL"} 
+  };
+
+  return findTableID (Table, i);
+}
+
+
+char *dvbstrPESH264_Slice_ID (u_int i)
+{
+  STR_TABLE  Table[] = {
+      {0x00, 0x00, "P (P slice)"},
+      {0x01, 0x01, "B (B slice)"},
+      {0x02, 0x02, "I (I slice)"},
+      {0x03, 0x03, "SP (SP slice)"},
+      {0x04, 0x04, "SI (SI slice)"},
+      {0x05, 0x05, "P (P slice)"},
+      {0x06, 0x06, "B (B slice)"},
+      {0x07, 0x07, "I (I slice)"},
+      {0x08, 0x08, "SP (SP slice)"},
+      {0x09, 0x09, "SI (SI slice)"},
+      {0x00, 0x00, "NULL"}
+  };
+
+  return findTableID (Table, i);
+}
+
+char *dvbstrH264_Profile_IDC (u_int i) 
+{
+  STR_TABLE  Table[] = {
+	  {44, 44, "CAVLC 4:4:4 Intra profile"},
+      {66, 66, "Baseline profile"},
+      {77, 77, "Main profile"},
+      {88, 88, "Extended profile"},
+      {100, 100, "High 10 Intra profile"},
+      {110, 110, "High 10 Intra profile"},
+      {122, 122, "High 4:2:2 profile"},
+      {244, 244, "High 4:4:4 Predictive profile"},
+      {0x00, 0x00, "NULL"}
+  };
+
+  return findTableID (Table, i);
+}
 
 /*
   -- PES Stream_id  ISO 13818-1  2.4.3.6
@@ -2128,7 +2194,7 @@ char *dvbstrCountryCode_ID (u_int i)
 	{ 0x019a, 0x019a,  "Korea" },
 	{ 0x019e, 0x019e,  "Kuwait" },
 	{ 0x01a1, 0x01a1,  "Kyrgyz Republic" },
-	{ 0x01a2, 0x01a2,  "Lao People´s Democratic Republic" },
+	{ 0x01a2, 0x01a2,  "Lao People?s Democratic Republic" },
 	{ 0x01a6, 0x01a6,  "Lebanon" },
 	{ 0x01aa, 0x01aa,  "Lesotho" },
 	{ 0x01ac, 0x01ac,  "Latvia" },
@@ -2278,7 +2344,7 @@ char *dvbstrBouquetTable_ID (u_int i)
 
 {
   STR_TABLE  Table[] = {
-	// -- { Bouquet ID, Bouquet ID,   "Name | Country Code | Operator" },
+	// -- { Bouquet?ID, Bouquet?ID,   "Name | Country?Code | Operator" },
 	#include "identifiers/bouquetID.h"
   };
 
@@ -3386,9 +3452,9 @@ char *dvbstrTS_MIP_ChannelBandwidth (u_int i)
  $$$ TODO 
 
 ISO/IEC 13818-1:2000/Amd.5:2005 (E):
-  Table 2-62 – MPEG-4_audio_profile_and_level assignment values
+  Table 2-62 ? MPEG-4_audio_profile_and_level assignment values
 
-  Table Amd.5-2 – MPEG-2_AAC_additional_information field values
+  Table Amd.5-2 ? MPEG-2_AAC_additional_information field values
 
 
 */

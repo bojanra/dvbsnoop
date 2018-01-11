@@ -12,6 +12,7 @@ noinst_HEADERS = \
 	packet_mem.h \
 	print_header.h \
 	crc32.h \
+	program_mem.h \
 	sig_abort.h
 
 
@@ -25,6 +26,7 @@ libmisc_a_SOURCES = \
 	packet_mem.c \
 	print_header.c \
 	crc32.c \
+	program_mem.c \
 	sig_abort.c
 
 
